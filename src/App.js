@@ -5,7 +5,12 @@ import Tasks from './components/Tasks'
 function App() {
   const [tasks, setTasks] = useState([])
   function handleCallBack(inputValue){
-    setTasks([...tasks, inputValue])
+    setTasks([...tasks, 
+    {
+      value: inputValue,
+      completed: false
+    }
+    ])
   }
   return (
     <>

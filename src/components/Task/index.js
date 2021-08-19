@@ -2,7 +2,9 @@ import React from 'react'
 
 function Task(props) {
     return(
-        <li>{props.name}</li>
+        <li style={props.isCompleted? {color:'black'} : {color:'red'}}>
+        {props.name}
+        </li>
     )
 }
 
