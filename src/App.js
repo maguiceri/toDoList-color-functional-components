@@ -4,18 +4,24 @@ import Tasks from './components/Tasks'
 
 function App() {
   const [tasks, setTasks] = useState([])
-  function handleCallBack(inputValue){
+
+  function handleInputValue(value){
     setTasks([...tasks, 
     {
-      value: inputValue,
-      completed: false
+      value,
+      isCompleted: false
     }
     ])
   }
+
+  function handleCallBack(name){
+    console.log("abuelo " + name)
+
+  }
   return (
     <>
-    <AddTasks handleCallBack={handleCallBack}/>
-    <Tasks tasks={tasks}/>
+    <AddTasks handleInputValue={handleInputValue}/>
+    <Tasks handleCallBack={handleCallBack} tasks={tasks}/>
     </>
   );
 }

@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 
 function AddTask(props){
-    const [inputValue, setInputValue] = useState('')
+    const [value, setValue] = useState('')
 
     function handleChange(e) {
-        setInputValue(e.target.value)
+        setValue(e.target.value)
     }
 
     function handleClick(){
-         if (inputValue && props.handleCallBack) {
-            props.handleCallBack(inputValue);
-            setInputValue('')
+         if (value && props.handleInputValue) {//
+            props.handleInputValue(value);
+            setValue('')
         }
     }
     return(
         <>
-        <input type="text" onChange={handleChange} value={inputValue}></input>
+        <input type="text" onChange={handleChange} value={value}></input>
         <button onClick={handleClick}>Agregar</button>
         </>
     )

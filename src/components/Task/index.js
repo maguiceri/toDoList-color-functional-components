@@ -1,8 +1,16 @@
 import React from 'react'
 
 function Task(props) {
+    function handleClick(){
+        const {name, handleCallBack} = props; //desestructuracion name y handleCallBack
+
+        if(handleCallBack) {
+        handleCallBack(name)
+        }
+    }
+
     return(
-        <li style={props.isCompleted? {color:'black'} : {color:'red'}}>
+        <li onClick={handleClick} style={props.isCompleted? {color:'green'} : {color:'black'}}>
         {props.name}
         </li>
     )
