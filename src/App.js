@@ -5,23 +5,14 @@ import Tasks from './components/Tasks'
 function App() {
   const [tasks, setTasks] = useState([])
 
-  function handleInputValue(value){
-    setTasks([...tasks, 
-    {
-      value,
-      isCompleted: false
-    }
-    ])
+  function handleInputValue(inputValue){
+    setTasks([...tasks, inputValue])
   }
 
-  function handleCallBack(name){
-    console.log("abuelo " + name)
-
-  }
   return (
     <>
-    <AddTasks handleInputValue={handleInputValue}/>
-    <Tasks handleCallBack={handleCallBack} tasks={tasks}/>
+    <AddTasks handleCallBack={handleInputValue}/>
+    <Tasks tasks={tasks}/>
     </>
   );
 }

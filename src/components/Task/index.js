@@ -1,16 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Task(props) {
-    function handleClick(){
-        const {name, handleCallBack} = props; //desestructuracion name y handleCallBack
+    const[status, setStatus] = useState(true)
 
-        if(handleCallBack) {
-        handleCallBack(name)
-        }
+    function handleToggle(){
+        setStatus((prevStatus)=>!prevStatus)
     }
 
+
     return(
-        <li onClick={handleClick} style={props.isCompleted? {color:'green'} : {color:'black'}}>
+        <li onClick={handleToggle} style={status? {color:'back'} : {color:'green'}}>
         {props.name}
         </li>
     )

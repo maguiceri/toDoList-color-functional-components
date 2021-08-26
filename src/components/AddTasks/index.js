@@ -1,24 +1,30 @@
 import React, { useState } from 'react'
 
-function AddTask(props){
-    const [value, setValue] = useState('')
+function AddTasks(props){
+    const [inputValue, setInputValue] = useState('')
 
     function handleChange(e) {
-        setValue(e.target.value)
+        setInputValue(e.target.value)
     }
 
-    function handleClick(){
-         if (value && props.handleInputValue) {//
-            props.handleInputValue(value);
-            setValue('')
+    function addTask() {
+        if (inputValue && props.handleCallBack) {
+            props.handleCallBack(inputValue);
+            setInputValue('')
+        }
+    }
+
+    function onKeyPress(e) {
+        if (e.keyCode == 13){
+            addTask()
         }
     }
     return(
         <>
-        <input type="text" onChange={handleChange} value={value}></input>
-        <button onClick={handleClick}>Agregar</button>
+        <input type="text" onChange={handleChange} onKeyDown={onKeyPress} value={inputValue}></input>
+        <button onClick={addTask}>Agregar</button>
         </>
     )
 }
 
-export default AddTask;
+export default AddTasks;
